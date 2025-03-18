@@ -19,8 +19,10 @@ const axiosClient=axios.create({
  const getArenaById=(id)=>axiosClient.get('/arenas/'+id+"?populate=*")
 
  const bookAppointment=(data)=>axiosClient.post('/appointments',data);
-
- const getUserBookingList=(userEmail)=>axiosClient.get("/appointments?[filters][Email][$eq]="+userEmail+"&populate[arena][populate][image][populate][0]=url&populate=*")
+ const getUserBookingList = (userEmail) =>
+    axiosClient.get(
+      `/appointments?[filters][Email][$eq]=${userEmail}&populate=arena.image`
+    );
  const deleteBooking=(id)=>axiosClient.delete('/appointments/'+id)
  
  const sendEmail=(data)=>axios.post('/api/sendEmail',data);
