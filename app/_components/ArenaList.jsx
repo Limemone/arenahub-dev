@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-function DoctorList({doctorList,heading='Popular Doctors'}) {
+function ArenaList({arenaList,heading='Popular Arenas'}) {
   return (
     <div className='mb-10 px-8'>
         <h2 className='font-bold text-xl'>
@@ -12,23 +12,23 @@ function DoctorList({doctorList,heading='Popular Doctors'}) {
         sm:grid-cols-2 md:grid-cols-3
         gap-7 mt-4
          lg:grid-cols-4'>
-            {doctorList.length>0?doctorList.map((doctor,index)=>(
+            {arenaList.length>0?arenaList.map((arena,index)=>(
                 <div className='border-[1px] rounded-lg p-3
                 cursor-pointer hover:border-primary
                 hover:shadow-sm transition-all ease-in-out'
                 key={index}>
-                    <Image src={doctor.image?.url}
-                    alt='doctor'
+                    <Image src={arena.image?.url}
+                    alt='arena'
                     width={500}
                     height={200}
                     className='h-[200px] w-full object-cover rounded-lg'
                     />
                     <div className='mt-3 items-baseline flex flex-col gap-1'>
                         <h2 className='text-[10px] bg-blue-100 p-1 rounded-full
-                        px-2 text-primary'>{doctor.categories?.Name}</h2>
-                        <h2 className='font-bold'>{doctor.Name}</h2>
-                        <h2 className='text-gray-500 text-sm'>{doctor.Address}</h2>
-                        <Link href={'/details/'+doctor?.id} className='w-full'>
+                        px-2 text-primary'>{arena.categories?.Name}</h2>
+                        <h2 className='font-bold'>{arena.Name}</h2>
+                        <h2 className='text-gray-500 text-sm'>{arena.Address}</h2>
+                        <Link href={'/details/'+arena?.id} className='w-full'>
                         <h2 className='p-2 px-3 border-[1px] border-primary
                         text-primary rounded-full w-full text-center
                         text-[11px] mt-2
@@ -53,4 +53,4 @@ function DoctorList({doctorList,heading='Popular Doctors'}) {
   )
 }
 
-export default DoctorList
+export default ArenaList

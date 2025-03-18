@@ -17,7 +17,7 @@ import { useKindeBrowserClient } from '@kinde-oss/kinde-auth-nextjs'
 import GlobalApi from '@/app/_utils/GlobalApi'
 import { toast } from 'sonner'
 
-function BookAppointment({doctor}) {
+function BookAppointment({arena}) {
     const [date, setDate]=useState(new Date());
     const [timeSlot,setTimeSlot]=useState();
     const [selectedTimeSlot,setSelectedTimeSlot]=useState();
@@ -56,7 +56,7 @@ function BookAppointment({doctor}) {
           Email:user.email,
           Time:selectedTimeSlot,
           Date:date,
-          doctor:doctor?.id,
+          arena:arena?.id,
           Note:note
         }
       }

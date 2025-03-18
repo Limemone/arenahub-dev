@@ -24,7 +24,7 @@ function BookingList({bookingList,expired,updateRecord}) {
     <div>
         {bookingList.length>0?bookingList.map((item,index)=>(
             <div className=' flex gap-4 items-center border p-5 m-3 rounded-lg'>
-                <Image src={item.doctor?.image.url}
+                <Image src={item.arena?.image.url}
                 className='rounded-full h-[70px] w-[70px] object-cover'
                 width={70}
                 height={70}
@@ -35,7 +35,7 @@ function BookingList({bookingList,expired,updateRecord}) {
                     {!expired&&<CancelAppointment onContinueClick={()=>onDeleteBooking(item)}/>}
                     </h2>
                     <h2 className='flex gap-2 text-gray-500'> <MapPin className='text-primary h-5 w-5'/> 
-                    {item.doctor?.Address}</h2>
+                    {item.arena?.Address}</h2>
                     <h2 className='flex gap-2'><Calendar className='text-primary h-5 w-5'/> Appointment On:
                      { moment(item.Date).format('DD-MMM-YYYY')} </h2>
                      <h2 className='flex gap-2'><Clock className='text-primary h-5 w-5'/> At Time : {item.Time} </h2>

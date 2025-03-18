@@ -3,20 +3,20 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Hero from "./_components/Hero";
 import CategorySearch from "./_components/CategorySearch";
-import DoctorList from "./_components/DoctorList";
+import ArenaList from "./_components/ArenaList";
 import GlobalApi from "./_utils/GlobalApi";
 import { useEffect, useState } from "react";
 
 export default function Home() {
 
-  const [doctorList,setDoctorList]=useState([]);
+  const [arenaList,setArenaList]=useState([]);
   useEffect(()=>{
-    getDoctorList();
+    getArenaList();
   },[])
-  const getDoctorList=()=>{
-    GlobalApi.getDoctorList().then(resp=>{
+  const getArenaList=()=>{
+    GlobalApi.getArenaList().then(resp=>{
       console.log(resp.data.data);
-      setDoctorList(resp.data.data);
+      setArenaList(resp.data.data);
     })
   }
   return (
@@ -27,8 +27,8 @@ export default function Home() {
         {/* Search bar + Categories  */}
         <CategorySearch/>
 
-        {/* Popular Doctor List  */}
-        <DoctorList doctorList={doctorList}/>
+        {/* Popular Arena List  */}
+        <ArenaList arenaList={arenaList}/>
     </div>
   );
 }

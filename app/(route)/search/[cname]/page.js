@@ -1,25 +1,25 @@
 "use client"
-import DoctorList from '@/app/_components/DoctorList';
+import ArenaList from '@/app/_components/ArenaList';
 import GlobalApi from '@/app/_utils/GlobalApi'
 import React, { useEffect, useState } from 'react'
 
 function Search({params}) {
 
-  const [doctorList,setDoctorList]=useState([]);
+  const [arenaList,setArenaList]=useState([]);
   useEffect(()=>{
     console.log(params.cname);
-    getDoctors();
+    getArenas();
   },[])
 
-  const getDoctors=()=>{
-    GlobalApi.getDoctorByCategory(params.cname).then(resp=>{
-      setDoctorList(resp.data.data);
+  const getArenas=()=>{
+    GlobalApi.getArenaByCategory(params.cname).then(resp=>{
+      setArenaList(resp.data.data);
     })
   }
   return (
     <div className='mt-5'>
-        <DoctorList heading={params.cname}
-        doctorList={doctorList}
+        <ArenaList heading={params.cname}
+        arenaList={arenaList}
         />
     </div>
   )

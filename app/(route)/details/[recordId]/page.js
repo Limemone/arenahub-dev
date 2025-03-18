@@ -1,24 +1,24 @@
 "use client"
 import GlobalApi from '@/app/_utils/GlobalApi'
 import React, { useEffect, useState } from 'react'
-import DoctorDetail from '../_components/DoctorDetail';
-import DoctorSuggestionList from '../_components/DoctorSuggestionList';
+import ArenaDetail from '../_components/ArenaDetail';
+import ArenaSuggestionList from '../_components/ArenaSuggestionList';
 
 function Details({params}) {
 
-  const [doctor,setDoctor]=useState();
+  const [arena,setArena]=useState();
   useEffect(()=>{
     console.log('Record ID:', params.recordId);
-    getDoctorById();
+    getArenaById();
   },[])
 
-  const getDoctorById = async () => {
+  const getArenaById = async () => {
     try {
-      const response = await GlobalApi.getDoctorById(params.recordId);
+      const response = await GlobalApi.getArenaById(params.recordId);
       console.log('API Response:', response.data); // Log the entire response
-      setDoctor(response.data); // Directly store the entire response
+      setArena(response.data); // Directly store the entire response
     } catch (error) {
-      console.error('Error fetching doctor:', error.response || error.message);
+      console.error('Error fetching arena:', error.response || error.message);
     }
   };
 
@@ -27,14 +27,14 @@ function Details({params}) {
       <h2 className='font-bold text-[22px]'>Details</h2>
 
       <div className='grid grid-cols-1 lg:grid-cols-4 '>
-        {/* Doctor Detail  */}
+        {/* Arena Detail  */}
         <div className=' col-span-3'>
-        {doctor&& <DoctorDetail doctor={doctor} />}
+        {arena&& <ArenaDetail arena={arena} />}
          
         </div>
-        {/* Doctor Suggestion  */}
+        {/* Arena Suggestion  */}
         <div>
-          <DoctorSuggestionList/>
+          <ArenaSuggestionList/>
         </div>
       </div>
     </div>

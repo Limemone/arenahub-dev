@@ -58,7 +58,8 @@ function Header() {
        <Popover>
         <PopoverTrigger>
         {user?.picture? 
-        <Image src={user?.picture} alt='profile-image'
+        // <Image src={user?.picture} alt='profile-image' 
+        <Image src={'https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png'} alt='profile-image'
         width={40}
         height={40}
         className='rounded-full' />:
